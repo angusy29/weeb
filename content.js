@@ -68,9 +68,15 @@ function createPopover() {
                         $('#definition').append('<h3>' + json.data[i].japanese[0].reading + '</h3>');                
                     } else {
                         $('#definition').append('<h3>' + json.data[i].japanese[0].word + '</h3>');
-                        $('#definition').append('<p>' + json.data[i].japanese[0].reading + '</p>');
+                        
+                        if (json.data[i].japanese[0].reading) {
+                            $('#definition').append('<p>' + json.data[i].japanese[0].reading + '</p>');
+                        }
                     }
-                    $('#definition').append('<p>' + json.data[i].senses[0].english_definitions[0] + '</p>');
+
+                    if (json.data[i].senses[0].english_definitions[0]) {
+                        $('#definition').append('<p>' + json.data[i].senses[0].english_definitions[0] + '</p>');
+                    }
                 }
         }
     }
@@ -130,7 +136,7 @@ translate = function() {
 
 document.onmouseup = createPopover;
 document.onkeyup = createPopover;
-$('body').append('<div id="infoDiv" class="card"><div id="definition" class="cardContainer"></div></div>');
+$('body').append('<div id="infoDiv" class="card"><div id="forblur"></div><div id="definition" class="cardContainer"></div></div>');
 
 //document.onmouseup = dismissPopover;
 //document.body.addEventListener('dblclick', translate);

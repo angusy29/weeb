@@ -3,9 +3,24 @@
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
     display: none;
-    background-color: rgba(200, 200, 200, 0.9);    
-    max-width: 300px;
+    background-color: rgba(200, 200, 200, 0.9);
+    max-width: 400px;
     min-width: 300px;
+}
+
+#definition {
+    z-index: 10;
+}
+
+#definition h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+#definition p {
+    color: black;
+    font-size: 14px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -20,5 +35,5 @@
 }
 
 hr {
-    max-width: 270px;
+    border-top: 1px solid #8c8b8b;
 }
