@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "weeb",
+    "description": "This extension translates a single English word to possible Japanese words using Jisho.",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": ["styles.css"],
+            "js": ["jquery.min.js", "content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    }
+
+}
