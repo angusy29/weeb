@@ -2,7 +2,7 @@
 
 Google Chrome plugin which suggests possible Japanese words for the selected English word.
 
-## In action
+## Example
 <p align="center">
-    <img src="Screenshots/example.png" width="480/>
+    <img src="Screenshots/example.png" width="480"/>
 </p>
