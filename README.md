@@ -1,16 +1,7 @@
 # weeb
 
-Google Chrome plugin which suggests possible Japanese words for the selected English word.
-
+Google Chrome plugin for learning Japanese words for English speakers.
 Data provided by Jisho API.
-
-## Example
-<p align="center">
-    <img src="Screenshots/example1.png" width="30%"/>
-    <img src="Screenshots/example2.png" width="30%"/>
-    <img src="Screenshots/example3.png" width="30%"/>
-    <img src="Screenshots/example4.png" width="30%"/>
-</p>
 
 ## Features
 
@@ -19,6 +10,15 @@ Data provided by Jisho API.
     <li>Double click on Japanese Kanji to obtain Furigana</li>    
     <li>Find meaning of Japanese words in Hiragana or Katakana</li>
 </ul>
+
+
+## Example
+<p align="center">
+    <img src="Screenshots/example1.png" width="30%"/>
+    <img src="Screenshots/example2.png" width="30%"/>
+    <img src="Screenshots/example3.png" width="30%"/>
+    <img src="Screenshots/example4.png" width="30%"/>
+</p>
 
 ## How to use
 
