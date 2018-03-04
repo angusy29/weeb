@@ -6,21 +6,26 @@
     background-color: rgba(239, 240, 239, 0.95);
     max-height: 400px;
     overflow-y: scroll;
+    z-index: 100;
 }
 
-#definition h3 {
+#definition .weeb-h3 {
     font-size: 22px;
     font-weight: bold;
     color: black;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
-#definition h4 {
+#definition .weeb-h4 {
     font-size: 14px;
     font-weight: bold;
     color: black;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
-#definition p {
+#definition .weeb-paragraph {
     color: black;
     font-size: 14px;
 }
@@ -36,6 +41,16 @@
     width: 300px;
 }
 
-#definition hr {
-    border-top: 1px solid #c4c6c8;
+#definition .weeb-hr {
+    border-bottom: 1px solid #c4c6c8;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+#definition .weeb-link {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
 }
