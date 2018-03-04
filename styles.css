@@ -3,17 +3,19 @@
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
     display: none;
-    background-color: rgba(200, 200, 200, 0.9);
-    max-width: 400px;
-    min-width: 300px;
-}
-
-#definition {
-    z-index: 10;
+    background-color: rgba(239, 240, 239, 0.95);
+    max-height: 400px;
+    overflow-y: scroll;
 }
 
 #definition h3 {
     font-size: 22px;
+    font-weight: bold;
+    color: black;
+}
+
+#definition h4 {
+    font-size: 14px;
     font-weight: bold;
     color: black;
 }
@@ -30,10 +32,10 @@
 
 /* Add some padding inside the card container */
 .cardContainer {
-    padding: 18px 16px;
+    padding: 18px 16px 18px 16px;
     width: 300px;
 }
 
-hr {
-    border-top: 1px solid #8c8b8b;
+#definition hr {
+    border-top: 1px solid #c4c6c8;
 }
