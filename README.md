@@ -1,6 +1,7 @@
 # weeb
 
-Google Chrome plugin for learning Japanese words for English speakers.
+Chrome plugin for learning Japanese words for English speakers, translate English to Japanese, provide Furigana for Kanji, and translates Hiragana/Katakana to English.
+
 Data provided by Jisho API.
 
 ## Features
