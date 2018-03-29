@@ -7,7 +7,7 @@ function dismissPopover() {
     $('#infoDiv').css('display', 'none');
 }
 
-function isJapanese(str) {
+function isNotASCII(str) {
 	for (var i = 0; i < str.length; i++) {
 		if (str.charCodeAt(i) > 127) return true;
 	}
