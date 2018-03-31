@@ -36,7 +36,7 @@ translate = function() {
         $('#infoDiv').css('display', 'none');
     }
 
-    var toLink = isJapanese(selectedText) ? url + selectedText : url + '"' + selectedText.toLowerCase() + '"';
+    var toLink = isNotASCII(selectedText) ? url + selectedText : url + '"' + selectedText.toLowerCase() + '"';
     http.open("GET", toLink);
     http.send();
 
@@ -81,7 +81,7 @@ translate = function() {
             }
             $('#definition').append('<hr class="weeb-hr">');
 
-            toLink = isJapanese(selectedText) ? definitionURL + selectedText : definitionURL + '"' + selectedText.toLowerCase() + '"';
+            toLink = isNotASCII(selectedText) ? definitionURL + selectedText : definitionURL + '"' + selectedText.toLowerCase() + '"';
             $('#definition').append('<a class="weeb-link" href=' + toLink + ' target="_blank">More definitions for ' + '"' + selectedText +'"' + '</a>')
             
         }
