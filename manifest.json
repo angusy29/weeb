@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "weeb",
     "description": "This extension translates an English word to Japanese, provides Hiragana for Kanji, and translates Hiragana/Katakana to English",
-    "version": "0.0.1",
+    "version": "1.1",
     "content_scripts": [
         {
             "matches": [

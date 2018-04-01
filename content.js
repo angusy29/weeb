@@ -3,10 +3,25 @@ var url = 'https://jisho.org/api/v1/search/words?keyword=';
 var definitionURL = "https://jisho.org/search/"
 const http = new XMLHttpRequest();
 
-// restore options on launch
-chrome.storage.sync.get('isWeeb', function(result) {
-    isWeeb = result.isWeeb;
-});
+function restoreIsWeeb() {
+    var wait = true;
+    // restore options
+    chrome.storage.sync.get('isWeeb', function(result) {
+        if (result.isWeeb === undefined) {
+//            console.log('new');
+            isWeeb = true;
+            chrome.storage.sync.set({'isWeeb': true});
+        } else {
+//            console.log('not new');
+            isWeeb = result.isWeeb;
+            chrome.storage.sync.set({'isWeeb': result.isWeeb});
+        }
+        wait = false;
+    });
+    if (!wait) return;
+}
+
+restoreIsWeeb();
 
 function dismissPopover() {
     $('#definition').contents().remove();
@@ -23,6 +38,7 @@ function isNotASCII(str) {
  
 translate = function() {
     // console.log('Translating... ' + isWeeb);
+    restoreIsWeeb();
     if (!isWeeb) return;
 
     var selectedText = window.getSelection().toString();
