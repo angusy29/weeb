@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "weeb",
-    "description": "This extension translates a single English word to possible Japanese words using Jisho.",
-    "version": "1.0",
+    "description": "This extension translates an English word to Japanese, provides Hiragana for Kanji, and translates Hiragana/Katakana to English",
+    "version": "0.0.1",
     "content_scripts": [
         {
             "matches": [
@@ -14,6 +14,11 @@
     ],
     "browser_action": {
         "default_popup": "popup.html"
-    }
-
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "permissions": [
+        "tabs", "<all_urls>", "storage"
+    ]
 }

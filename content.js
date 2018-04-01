@@ -1,6 +1,12 @@
+var isWeeb;
 var url = 'https://jisho.org/api/v1/search/words?keyword=';
 var definitionURL = "https://jisho.org/search/"
 const http = new XMLHttpRequest();
+
+// restore options on launch
+chrome.storage.sync.get('isWeeb', function(result) {
+    isWeeb = result.isWeeb;
+});
 
 function dismissPopover() {
     $('#definition').contents().remove();
@@ -13,10 +19,14 @@ function isNotASCII(str) {
 	}
 	return false;
 }
+
  
 translate = function() {
+    // console.log('Translating... ' + isWeeb);
+    if (!isWeeb) return;
+
     var selectedText = window.getSelection().toString();
-    console.log(selectedText);
+    // console.log(selectedText);
     $('#definition').contents().remove();
 
     if (selectedText.length <= 0) {
@@ -40,11 +50,11 @@ translate = function() {
     http.open("GET", toLink);
     http.send();
 
-    console.log(selectedText.toLowerCase());
+    // console.log(selectedText.toLowerCase());
 
     http.onload = () => {
         var json = JSON.parse(http.responseText);
-        console.log(json);
+        // console.log(json);
 
         if (json.meta.status == 200) {
             $('#definition').contents().remove();
@@ -73,7 +83,6 @@ translate = function() {
                     var toAdd = '<div class="weeb-paragraph">'
                     for (var j = 0; j < json.data[i].senses[0].english_definitions.length; j++) {
                         toAdd += j+1 + ') ' + json.data[i].senses[0].english_definitions[j] + '<br>';
-//                            $('#definition').append(j+1 + ') ' + json.data[i].senses[0].english_definitions[j] + '<br>');
                     }
                     toAdd += '</div>';
                     $('#definition').append(toAdd);
@@ -82,21 +91,26 @@ translate = function() {
             $('#definition').append('<hr class="weeb-hr">');
 
             toLink = isNotASCII(selectedText) ? definitionURL + selectedText : definitionURL + '"' + selectedText.toLowerCase() + '"';
-            $('#definition').append('<a class="weeb-link" href=' + toLink + ' target="_blank">More definitions for ' + '"' + selectedText +'"' + '</a>')
-            
+            $('#definition').append('<a class="weeb-link" href=' + toLink + ' target="_blank">More definitions for ' + '"' + selectedText +'"' + '</a>')            
         }
     }
-
 }
+
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+//    console.log('ON REQUEST');
+    isWeeb = request.isWeeb;
+//    console.log(request);
+//    console.log(sender);
+});
 
 //document.onmouseup = createPopover;
 //document.onkeyup = createPopover;
-$('body').append('<div id="infoDiv" class="card"><div id="definition" class="cardContainer"></div></div>');
+$('body').append('<div id="infoDiv" class="weeb-card"><div id="definition" class="weeb-cardContainer"></div></div>');
 
 // dismiss popover on click outside of card
 $(document).click(function(e) {
-	if (!$(e.target).closest('#infoDiv').length) {
-		dismissPopover();
-	}
+    if (!$(e.target).closest('#infoDiv').length) {
+        dismissPopover();
+    }
 });
 document.body.addEventListener('dblclick', translate);
